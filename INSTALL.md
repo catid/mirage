@@ -4,20 +4,20 @@ The quickest way to try Mirage is through our prebuilt docker images with all de
 
 ## Docker images
 
-We require [docker](https://docs.docker.com/engine/installation/) and [nvidia-docker](https://github.com/NVIDIA/nvidia-docker/) to run the Mirage [docker images](https://hub.docker.com/r/mlso/mirage).
+We require [docker](https://docs.docker.com/engine/installation/) and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 * First, clone the Mirage gitpub repository to obtain necessary scripts.
 ```bash
 git clone --recursive https://www.github.com/mirage-project/mirage
-```
+cd mirage/docker
 
-* Second, use the following command to run a Mirage docker image:
-```bash
+# Build docker image
+docker build -t mirage -f Dockerfile .
+
+# Run docker image
 docker run --gpus all -it mirage bash
-```
 
-* You are ready to use Mirage now. Try some of our demos to superoptimize DNNs.
-```python
+# Run test script
 python demo/demo_group_query_attention_spec_decode.py --checkpoint demo/checkpoint_group_query_attn_spec_decode.json
 ```
 
@@ -28,6 +28,12 @@ python demo/demo_group_query_attention_spec_decode.py --checkpoint demo/checkpoi
 * CMAKE 3.24 or higher
 * Cython 0.28 or higher
 * CUDA 11.0 or higher and CUDNN 8.0 or higher
+
+```bash
+sudo apt-get install cmake make cython
+sudo apt-get install libcudnn8-dev
+sudo apt-get install libcudnn8=8.0.4.30-1+cuda11.0
+```
 
 ### Clone github repo
 

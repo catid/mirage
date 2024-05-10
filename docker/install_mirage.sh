@@ -26,7 +26,7 @@ cd /usr/mirage/deps/z3
 mkdir -p build
 cd build
 cmake ..
-make -j
+make -j install
 # build mirage runtime
 cd /usr/mirage
 mkdir -p build
