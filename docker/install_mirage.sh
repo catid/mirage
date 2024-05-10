@@ -19,7 +19,8 @@ set -u
 set -o pipefail
 
 cd /usr
-git clone --recursive https://github.com/mirage-project/mirage mirage
+#git clone --recursive https://github.com/mirage-project/mirage mirage
+git clone --recursive https://github.com/catid/mirage mirage
 # build z3
 cd /usr/mirage/deps/z3
 mkdir -p build
@@ -30,7 +31,6 @@ make -j
 cd /usr/mirage
 mkdir -p build
 cd build
-#export CUDACXX=/usr/local/cuda/bin/nvcc
 cmake ..
 make -j
 # build mirage python package
