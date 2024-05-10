@@ -13,7 +13,7 @@
 # limitations under the License.
 #
 
-FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu20.04
+FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends wget sudo binutils git && \
     rm -rf /var/lib/apt/lists/*
@@ -39,4 +39,3 @@ COPY install_mirage.sh /install/install_mirage.sh
 RUN bash /install/install_mirage.sh
 
 WORKDIR /usr/mirage
-#RUN chmod -R a+w /usr/mirage

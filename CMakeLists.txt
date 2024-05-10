@@ -79,6 +79,12 @@ include_directories(deps/cutlass/tools/util/include)
 #include_directories(${MIRAGE_INCLUDE_DIRS})
 
 #set Z3
+if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/deps/z3/build/cmake/Z3Config.cmake")
+  set(Z3_DIR "${CMAKE_CURRENT_LIST_DIR}/deps/z3/build")
+  message("Z3Config.cmake found")
+else()
+  message("Z3Config.cmake not found")
+endif()
 find_package(Z3 REQUIRED)
 message(STATUS "Z3_FOUND: ${Z3_FOUND}")
 message(STATUS "Found Z3 ${Z3_VERSION_STRING}")

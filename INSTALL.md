@@ -11,9 +11,9 @@ We require [docker](https://docs.docker.com/engine/installation/) and [nvidia-do
 git clone --recursive https://www.github.com/mirage-project/mirage
 ```
 
-* Second, use the following command to run a Mirage docker image. The default CUDA version is 12.4.
+* Second, use the following command to run a Mirage docker image:
 ```bash
-/path-to-mirage/docker/run_docker.sh mlso/mirage
+docker run --gpus all -it mirage bash
 ```
 
 * You are ready to use Mirage now. Try some of our demos to superoptimize DNNs.
